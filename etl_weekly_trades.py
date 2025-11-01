@@ -57,7 +57,11 @@ def transform(df_trades: pd.DataFrame, compute_pnl: bool = False) -> pd.DataFram
       - Calculates total_volume (sum of quantity), trade_count
       - Optionally calculates total_pnl if compute_pnl=True and sufficient inputs provided.
 
-    PnL note: This template treats PnL as optional because it depends on business rules.
+    PnL note: This template treats PnL as optional. For test assignement a logic for pnl calculation:
+        - The average buy price defines your cost basis.
+        - Realized PnL measures gains on quantities already sold.
+        - Unrealized PnL values remaining inventory at the latest market price.
+        - Total PnL = Realized + Unrealized → the trader’s complete profit or loss as of now
     """
     # To keep timezone aware timestamp (Вибрав таке рішення, хоча видається не важливим для семплу з прикладу, але в контексті реальних даних, певно що так)
     df_trades['week_start_date']= (df_trades.timestamp.dt.normalize() - pd.to_timedelta(df_trades.timestamp.dt.weekday, unit="D"))
