@@ -14,10 +14,10 @@ def extract(input_path: str) -> pd.DataFrame:
     df_trades = pd.read_csv(input_path, delimiter=",")
     print(df_trades.columns)
     # Check the columns and ensure timestamp is datetime
-    df_trades = df_diagnostics(df_trades)
+    df_trades = input_diagnostics(df_trades)
     return df_trades
 
-def df_diagnostics(df_trades: pd.DataFrame) -> pd.DataFrame:
+def input_diagnostics(df_trades: pd.DataFrame) -> pd.DataFrame:
     """
     Convert a timestamp to the Monday of its week (week_start_date).
     """
@@ -29,7 +29,7 @@ def df_diagnostics(df_trades: pd.DataFrame) -> pd.DataFrame:
         vals = df_trades[c].unique()
         print(f" \n{c} ({len(vals)}):\n{vals}")
     
-    print ("\n Перевести всі не числові записи у 'quantity','price' в numeric data types")
+    print ("\n Перевести  'quantity','price' в to_numeric data types")
     cols_numeric = ["quantity","price"]
     for c in cols_numeric:
         df_trades[c] = pd.to_numeric(df_trades[c], errors="coerce")

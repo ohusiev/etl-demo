@@ -1,0 +1,6 @@
+pandas>=2.0.0
+numpy
+sqlite3
+os
+matplotlib.pyplot
+openpyxl

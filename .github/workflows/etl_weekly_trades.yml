@@ -1,5 +1,5 @@
 
-name: ETL WhiteBIT Test
+name: ETL WhiteBIT test assignment
 
 on:
   push:
