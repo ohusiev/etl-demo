@@ -1,6 +1,4 @@
 pandas
 numpy
-sqlite3
-os
 matplotlib.pyplot
 openpyxl
