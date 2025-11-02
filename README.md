@@ -23,7 +23,7 @@ by Oleksandr Husiev
         sqlite_path="agg_result.db",
         table_name="agg_trades_weekly",
         compute_pnl=True,
-        add_timestamp = False # Set False by default, if True adds timestamp to the erporting execl file as {timestamp}_top_clients.xlsx
+        add_timestamp = False # Set False by default, if True adds timestamp to the file name top_clients.xlsx as in format '%Y%m%d_%H%M%S'
     )
 - У цьому випадку запуску локально буде створено файл *.db в корені проєкту а також  `output/top_clients.xlsx`. Якшо з GitHub Actions, то лише файл бази даних, без Excel/CSV репорту (оскільки це прямо не зазначено в ТЗ, повернення цього файлу завжди можна додати через `etl_weekly_trades.yml`).
 - Якщо спочатку запустити виконання скрипту з compute_pnl = False, а потім повторно з  compute_pnl = True, видаст помилку пыд час виконання оскілки буде несумісність рядків. Оскільки це виходить рамки ТЗ, цей момент не коригував, реалізація рішення if_exists="replace" уникла б цього, але разом з тим було б простішею.

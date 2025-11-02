@@ -287,6 +287,6 @@ if __name__ == "__main__":
         sqlite_path="agg_result.db",
         table_name="agg_trades_weekly",
         compute_pnl=True,
-        add_timestamp = False
+        add_timestamp = False # Set False by default, if True adds timestamp to the file name top_clients.xlsx as in format '%Y%m%d_%H%M%S'
     )
     print(out.head(5).to_string(index=True))
