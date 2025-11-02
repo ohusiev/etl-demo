@@ -96,6 +96,7 @@ def transform(df_trades: pd.DataFrame, compute_pnl: bool = False) -> pd.DataFram
 
     # Optional PnL computation
     if compute_pnl:
+        print(' compute_pnl  is True: Розрахунок PnL метрики')
         markt_price = compute_mark_price(df_trades)
         
         # Weighted average entry price for buys
@@ -258,6 +259,6 @@ if __name__ == "__main__":
         input_csv="trades (1) (2) (1).csv",
         sqlite_path="agg_result.db",
         table_name="agg_trades_weekly",
-        compute_pnl=True# set True if you provide a market_price.json or a 'pnl' column
+        compute_pnl=True
     )
     print(out.head(5).to_string(index=True))
